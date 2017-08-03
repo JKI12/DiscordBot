@@ -8,7 +8,7 @@ export default ({ channel }) => {
     'The commands I can execute are:',
     '**!info**: Shows the info',
     '**!addAnime** ***anime name / url***: Add anime to the Anime Roullete',
-    "**!animeList**: Will list all the anime currently in the roultette table",
+    "**!listAnime**: Will list all the anime currently in the roultette table",
     "**!animeRoulette**: Will start the anime roulette table for you"
   ]);
 };
