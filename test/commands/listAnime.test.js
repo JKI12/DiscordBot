@@ -40,5 +40,29 @@ describe('List Anime Command', () => {
 
     messageHandler.sendMessage.restore();
     cache.get.restore();
-  });  
+  });
+
+  it('should send "There currently isnt any anmie in roulette, why no add some? !addAnime" when there is no anime', async () => {
+    // Arrange
+    const sendMessageStub = sinon.stub(messageHandler, 'sendMessage');
+    const cacheGetStub = sinon.stub(cache, 'get')
+      .returns([]);
+
+    // Act
+    await listAnime(message);
+
+    // Assert
+    expect(sendMessageStub.calledOnce).to.be.true;
+    expect(sendMessageStub.args[0]).to.deep.equal(
+      [
+        {
+          id: 1
+        },
+        'There currently isnt any anmie in roulette, why no add some? !addAnime'
+      ]
+    );
+
+    messageHandler.sendMessage.restore();
+    cache.get.restore();
+  });
 });

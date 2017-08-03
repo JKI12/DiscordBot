@@ -9,6 +9,6 @@ export default ({ channel }) => {
     '**!info**: Shows the info',
     '**!addAnime** ***anime name / url***: Add anime to the Anime Roullete',
     "**!animeList**: Will list all the anime currently in the roultette table",
-    "**!animeroulette**: Will start the anime roulette table for you"
+    "**!animeRoulette**: Will start the anime roulette table for you"
   ]);
 };
