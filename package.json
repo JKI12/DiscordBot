@@ -7,7 +7,7 @@
     "test": "mocha --compilers js:babel-core/register --require babel-polyfill \"test/**/*@(.js|.jsx)\"",
     "start": "node dist/index.js",
     "dev": "nodemon --ignore cache.json src/index.js --exec babel-node",
-    "build": "babel src -d dist --copy-files --source-maps"
+    "build": "babel src -d dist --copy-files --source-maps && touch dist/cache.json && echo {} >> dist/cache.json"
   },
   "author": "",
   "license": "ISC",
