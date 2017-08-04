@@ -1,3 +1,3 @@
 export default (message) => {
-  message.react('❤️');
+  message.react(':heart:');
 };
