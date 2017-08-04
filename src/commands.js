@@ -4,6 +4,7 @@ import listAnime from './commands/listAnime';
 import rouletteAnime from './commands/rouletteAnime';
 import laugh from './commands/laugh';
 import react from './commands/react';
+import cat from './commands/cat';
 
 const commands = {
   "!info": info,
@@ -11,7 +12,8 @@ const commands = {
   "!listanime": listAnime,
   "!animeroulette": rouletteAnime,
   "!laugh": laugh,
-  "!react": react
+  "!react": react,
+  "!cat": cat
 };
 
 const executeCommand = (message, client) => {

@@ -11,6 +11,7 @@ export default ({ channel }) => {
     "**!listAnime**: Will list all the anime currently in the roultette table",
     "**!animeRoulette**: Will start the anime roulette table for you",
     "**!laugh**: Join a voice channel to trigger this command",
-    "**!react** ***emotion***: Will send a gif reaction based on emotion"
+    "**!react** ***emotion***: Will send a gif reaction based on emotion",
+    "**!cat**:: Gets a random cat picture"
   ]);
 };
