@@ -7,7 +7,13 @@ const initCache = () => {
   if (!client) {
     bluebird.promisifyAll(redis.RedisClient.prototype);
 
-    client = redis.createClient();
+    const redisAddress = process.env.REDIS_ADDRESS;
+
+    if (redisAddress) {
+      client = redis.createClient(6379, `${redisAddress}`);
+    } else {
+      client = redis.createClient();
+    }
 
     client.on('connect', () => {
       console.log('connected to redis cache');
