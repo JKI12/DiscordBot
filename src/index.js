@@ -17,7 +17,7 @@ client.on('message', (message) => {
   messageReact(message);
   
   if (message.isMemberMentioned(user)) {
-    executeCommand(message);
+    executeCommand(message, client);
   }
 });
 
