@@ -16,8 +16,10 @@ At this moment I deploy this bot onto aws manually by running the following comm
   docker tag image_id repo/image_name:latest
   docker push repo/image_name
   SSH into aws instance
+  docker network create bot
   docker pull repo/image_name
-  docker run -d -e BOT_TOKEN="" -e BOT_NAME="" repo/image_name:latest
+  docker run -p 6379:6379 --name discord_bot-cache --net bot -d redis redis-server --appendonly yes
+  docker run --net bot -d -e BOT_TOKEN="" -e BOT_NAME="" -e REDIS_ADDRESS=(redis container id) repo/image_name:latest
 ```
 
 A intense process yes but meh 😆
