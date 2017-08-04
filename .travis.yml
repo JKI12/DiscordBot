@@ -3,10 +3,6 @@ sudo: false
 node_js:
   - "7"
 install:
-  - npm install node-gyp-install && ./node_modules/node-gyp-install/bin.js
   - npm install
 script:
   - npm test
-cache:
-  directories:
-    - "node_modules"
