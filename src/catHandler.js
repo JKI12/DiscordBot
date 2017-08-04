@@ -6,7 +6,7 @@ const apiKey = process.env.CAT_API_KEY;
 
 const getCat = () => {
   return new Promise((resolve, reject) => {
-    axios.get(`http://thecatapi.com/api/images/get?format=html&api_key=${apiKey}`)
+    axios.get(`http://thecatapi.com/api/images/get?format=html`)
       .then(({ data }) => {
         const { window } = new JSDOM(data);
         const imgs = window.document.getElementsByTagName('img');
