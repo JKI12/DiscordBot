@@ -1,10 +1,8 @@
+import rand from '../rand';
+
 import { ANIME_CACHE_KEY } from '../constants';
 import { get, add } from '../cache';
 import { sendMessage } from '../messageHandler';
-
-const rand = (min, max) => {
-  return Math.floor(Math.random() * max) + min;
-};
 
 export default async (message) => {
   const { channel, author } = message;

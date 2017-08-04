@@ -3,13 +3,15 @@ import addAnime from './commands/addAnime';
 import listAnime from './commands/listAnime';
 import rouletteAnime from './commands/rouletteAnime';
 import laugh from './commands/laugh';
+import react from './commands/react';
 
 const commands = {
   "!info": info,
   "!addanime": addAnime,
   "!listanime": listAnime,
   "!animeroulette": rouletteAnime,
-  "!laugh": laugh
+  "!laugh": laugh,
+  "!react": react
 };
 
 const executeCommand = (message, client) => {
