@@ -1,4 +1,4 @@
-FROM node:6.11.1
+FROM letsxo/node-ffmpeg:1.8.0
 
 RUN npm install -g pm2
 

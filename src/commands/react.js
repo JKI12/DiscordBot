@@ -1,7 +1,7 @@
 import rand from '../rand';
 
 import { reactions, getReactions } from '../reacts/reactions';
-import { sendMessage } from '../messageHandler';
+import { sendMessage, sendDm } from '../messageHandler';
 
 const react = (message, reaction) => {
   const gifs = reactions[reaction];
@@ -29,7 +29,7 @@ export default (message, parameters) => {
     
     if (author) {
       const typeReactions = getReactions();
-      author.sendMessage(`Sorry the only emotions I can react with are: ${typeReactions}`);
+      sendDm(author, `Sorry the only emotions I can react with are: ${typeReactions}`);
       return;
     }
   }

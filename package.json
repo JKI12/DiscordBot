@@ -16,7 +16,8 @@
     "dotenv": "^4.0.0",
     "fs": "0.0.1-security",
     "jsonfile": "^3.0.1",
-    "node-opus": "^0.2.6"
+    "node-opus": "^0.2.6",
+    "opusscript": "0.0.3"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
