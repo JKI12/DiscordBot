@@ -1,43 +1,44 @@
-import jsonfile from 'jsonfile';
-const file = './cache.json';
+import redis from 'redis';
+import bluebird from 'bluebird';
 
-const add = async (key, value) => {
-  const json = await readFile();
-  json[key] = value;
-  console.log(`Added ${JSON.stringify(value)} to '${key}'`);
-  await writeToFile(json);
-};
+let client;
 
-const get = async (key) => {
-  const json = await readFile();
-  return json[key];
-};
+const initCache = () => {
+  if (!client) {
+    bluebird.promisifyAll(redis.RedisClient.prototype);
 
-const readFile = () => {
-  return new Promise((resolve, reject) => {
-    jsonfile.readFile(file, (err, obj) => {
-      if(err) {
-        reject(err);
-      } else {
-        resolve(obj);
-      }
+    client = redis.createClient();
+
+    client.on('connect', () => {
+      console.log('connected to redis cache');
     });
-  });
+
+    client.on("error", (err) => {
+      console.log("Error " + err);
+    });
+  }
 };
 
-const writeToFile = (json) => {
-  return new Promise((resolve, reject) => {
-    jsonfile.writeFile(file, json, (err) => {
-      if(err) {
-        reject(err);
+const add = (key, value) => {
+  if (client) {
+    client.set(key, value, (err, reply) => {
+      if (err) {
+        console.error(err);
       } else {
-        resolve();
+        console.log(`Added ${value} to ${key}`);
       }
-    });
-  });
+    })
+  }
+};
+
+const get = (key) => {
+  if (client) {
+    return client.getAsync(key);
+  }
 };
 
 module.exports = {
   add,
-  get
+  get,
+  initCache
 };

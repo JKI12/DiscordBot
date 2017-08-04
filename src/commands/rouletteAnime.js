@@ -20,6 +20,7 @@ export default async (message) => {
     'https://media.giphy.com/media/26uflBhaGt5lQsaCA/giphy.gif'
   ]);
 
+  anime = JSON.parse(anime);
   const index = rand(0, anime.length);
   const selection = anime[index];
   anime.splice(index, 1);

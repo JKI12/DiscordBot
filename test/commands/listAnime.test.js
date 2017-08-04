@@ -16,10 +16,14 @@ describe('List Anime Command', () => {
     // Arrange
     const sendMessageStub = sinon.stub(messageHandler, 'sendMessage');
     const cacheGetStub = sinon.stub(cache, 'get')
-      .returns([
-        { id: 'test anime 1', author: 'Jake' },
-        { id: 'https://test.com/anime', author: 'John' }
-      ]);
+      .returns(
+        JSON.stringify(
+          [
+            { id: 'test anime 1', author: 'Jake' },
+            { id: 'https://test.com/anime', author: 'John' }
+          ]
+        )
+      );
 
     // Act
     await listAnime(message);
@@ -46,7 +50,7 @@ describe('List Anime Command', () => {
     // Arrange
     const sendMessageStub = sinon.stub(messageHandler, 'sendMessage');
     const cacheGetStub = sinon.stub(cache, 'get')
-      .returns([]);
+      .returns('[]');
 
     // Act
     await listAnime(message);

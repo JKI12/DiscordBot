@@ -5,12 +5,12 @@ import { sendMessage } from '../messageHandler';
 const linkRegex = /(https?:\/\/[^\s]+)/g;
 
 export const addAnime = async (item, author) => {
-  const animeCache = await get(ANIME_CACHE_KEY);
+  const cached = await get(ANIME_CACHE_KEY);
 
   let anime = [];
 
-  if(animeCache) {
-    anime = animeCache;
+  if(cached) {
+    anime = JSON.parse(cached);
   }
 
   anime.push({
@@ -18,7 +18,7 @@ export const addAnime = async (item, author) => {
     author
   });
 
-  add(ANIME_CACHE_KEY, anime);
+  add(ANIME_CACHE_KEY, JSON.stringify(anime));
 };
 
 export default async (message, parameters) => {

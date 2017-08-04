@@ -44,7 +44,7 @@ describe('Roulette Anime Command', () => {
     // Arrange
     const sendMessageStub = sinon.stub(messageHandler, 'sendMessage');
     const cacheGetStub = sinon.stub(cache, 'get')
-      .returns([{ id: 'test anime', author: 'Jake' }]);
+      .returns(JSON.stringify([{ id: 'test anime', author: 'Jake' }]));
     const addStub = sinon.stub(cache, 'add');
 
     // Act

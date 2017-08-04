@@ -7,19 +7,20 @@
     "test": "mocha --compilers js:babel-core/register --require babel-polyfill \"test/**/*@(.js|.jsx)\"",
     "start": "node dist/index.js",
     "dev": "nodemon --ignore cache.json src/index.js --exec babel-node",
-    "build": "babel src -d dist --copy-files --source-maps && touch dist/cache.json && echo {} > dist/cache.json && cp -r res dist/res"
+    "build": "babel src -d dist --copy-files --source-maps && cp -r res dist/res"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.16.2",
+    "bluebird": "^3.5.0",
     "discord.js": "^11.1.0",
     "dotenv": "^4.0.0",
     "fs": "0.0.1-security",
-    "jsonfile": "^3.0.1",
     "node-jsdom": "^3.1.5",
     "node-opus": "^0.2.6",
-    "opusscript": "0.0.3"
+    "opusscript": "0.0.3",
+    "redis": "^2.7.1"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",

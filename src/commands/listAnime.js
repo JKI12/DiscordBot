@@ -7,9 +7,15 @@ const linkRegex = /(https?:\/\/[^\s]+)/g;
 export default async (message) => {
   const { channel } = message;
 
-  const anime = await get(ANIME_CACHE_KEY);
+  const cached = await get(ANIME_CACHE_KEY);
 
-  if(!anime || anime.length == 0) {
+  let anime;
+
+  if (cached) {
+    anime = JSON.parse(cached);
+  }
+
+  if(!cached || !anime || anime.length == 0) {
     sendMessage(channel, 'There currently isnt any anmie in roulette, why no add some? !addAnime');
     return;
   }

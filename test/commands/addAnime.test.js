@@ -39,7 +39,7 @@ describe('Add Anime Command', () => {
 
   it('should add the anime to the cache', async() => {
     // Arrange
-    const getStub = sinon.stub(cache, 'get').returns([]);
+    const getStub = sinon.stub(cache, 'get').returns('[]');
     const addStub = sinon.stub(cache, 'add');
     const sendMessageStub = sinon.stub(messageHandler, "sendMessage");
 
@@ -51,12 +51,14 @@ describe('Add Anime Command', () => {
     expect(addStub.args[0]).to.deep.equal(
       [
         "anime",
-        [
-          {
-            author: 'Jake',
-            id: 'test anime'
-          }
-        ]
+        JSON.stringify(
+          [
+            {
+              id: 'test anime',
+              author: 'Jake'
+            }
+          ]
+        )
       ]
     );
 
@@ -67,7 +69,7 @@ describe('Add Anime Command', () => {
 
   it('should send "<@!Jake> Added \'test anime\' to the roulette list" when the anime is not a link', async() => {
     // Arrange
-    const getStub = sinon.stub(cache, 'get').returns([]);
+    const getStub = sinon.stub(cache, 'get').returns('[]');
     const addStub = sinon.stub(cache, 'add');
     const sendMessageStub = sinon.stub(messageHandler, "sendMessage");
 
@@ -92,7 +94,7 @@ describe('Add Anime Command', () => {
 
   it('should send "<@!Jake> Added \'<https://test.com/anime>\' to the roulette list" when the anime is a link', async() => {
     // Arrange
-    const getStub = sinon.stub(cache, 'get').returns([]);
+    const getStub = sinon.stub(cache, 'get').returns('[]');
     const addStub = sinon.stub(cache, 'add');
     const sendMessageStub = sinon.stub(messageHandler, "sendMessage");
 
