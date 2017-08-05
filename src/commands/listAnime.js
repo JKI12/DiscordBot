@@ -22,7 +22,7 @@ export default async (message) => {
 
   const m = anime.map((element) => {
     const isLink = linkRegex.test(element.id);
-    const name = isLink ? `<${element.id}>` : element.id;
+    const name = isLink ? element.id.replace(linkRegex, '') : element.id;
     return `**${name}** - Added by: <@!${element.author}>`;
   });
 
