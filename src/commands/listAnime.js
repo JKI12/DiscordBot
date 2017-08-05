@@ -26,5 +26,11 @@ export default async (message) => {
     return `**${name}** - Added by: <@!${element.author}>`;
   });
 
-  sendMessage(channel, m);
+  var arrays = [], size = 5;
+
+  while (m.length > 0) {
+    arrays.push(a.splice(0, size));
+  }
+
+  sendMessage(channel, arrays);
 };
