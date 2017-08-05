@@ -18,7 +18,9 @@ export const addAnime = async (item, author) => {
     author
   });
 
-  add(ANIME_CACHE_KEY, JSON.stringify(anime));
+  const json = JSON.stringify(anime);
+
+  add(ANIME_CACHE_KEY, json);
 };
 
 export default async (message, parameters) => {
@@ -40,7 +42,7 @@ export default async (message, parameters) => {
   await addAnime(anime, author.id);
 
   const isLink = linkRegex.test(anime);
-  anime = isLink ? element.id.replace(linkRegex, '') : element.id;
+  anime = isLink ? anime.replace(linkRegex, '') : anime;
 
   sendMessage(channel, `<@!${author.id}> Added '${anime}' to the roulette list`);
 };

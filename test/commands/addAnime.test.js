@@ -92,7 +92,7 @@ describe('Add Anime Command', () => {
     messageHandler.sendMessage.restore();
   });
 
-  it('should send "<@!Jake> Added \'<https://test.com/anime>\' to the roulette list" when the anime is a link', async() => {
+  it('should send "<@!Jake> Added \'test.com/anime\' to the roulette list" when the anime is a link', async() => {
     // Arrange
     const getStub = sinon.stub(cache, 'get').returns('[]');
     const addStub = sinon.stub(cache, 'add');
@@ -108,7 +108,7 @@ describe('Add Anime Command', () => {
         {
           id: 1
         },
-        '<@!Jake> Added \'<https://test.com/anime>\' to the roulette list'
+        '<@!Jake> Added \'test.com/anime\' to the roulette list'
       ]
     );
 

@@ -25,7 +25,7 @@ export default async (message) => {
   const selection = anime[index];
   anime.splice(index, 1);
 
-  await add(ANIME_CACHE_KEY, anime);
+  await add(ANIME_CACHE_KEY, JSON.stringify(anime));
 
   setTimeout(() => {
     sendMessage(channel, `<@!${author.id}> Anime Roulette has given you: ${selection.id}`);
