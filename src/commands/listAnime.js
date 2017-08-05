@@ -2,7 +2,7 @@ import { ANIME_CACHE_KEY } from '../constants';
 import { get } from '../cache';
 import { sendMessage } from '../messageHandler';
 
-const linkRegex = /(https?:\/\/[^\s]+)/g;
+const linkRegex = /^https?:\/\//g;
 
 export default async (message) => {
   const { channel } = message;

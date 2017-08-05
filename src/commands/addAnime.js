@@ -2,7 +2,7 @@ import { ANIME_CACHE_KEY } from '../constants';
 import { add, get } from '../cache';
 import { sendMessage } from '../messageHandler';
 
-const linkRegex = /(https?:\/\/[^\s]+)/g;
+const linkRegex = /^https?:\/\//g;
 
 export const addAnime = async (item, author) => {
   const cached = await get(ANIME_CACHE_KEY);
@@ -40,7 +40,7 @@ export default async (message, parameters) => {
   await addAnime(anime, author.id);
 
   const isLink = linkRegex.test(anime);
-  anime = isLink ? `<${anime}>` : anime;
+  anime = isLink ? element.id.replace(linkRegex, '') : element.id;
 
   sendMessage(channel, `<@!${author.id}> Added '${anime}' to the roulette list`);
 };

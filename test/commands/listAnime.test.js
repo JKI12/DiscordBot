@@ -37,7 +37,7 @@ describe('List Anime Command', () => {
         },
         [
           '**test anime 1** - Added by: <@!Jake>',
-          '**<https://test.com/anime>** - Added by: <@!John>'
+          '**test.com/anime** - Added by: <@!John>'
         ]
       ]
     );
