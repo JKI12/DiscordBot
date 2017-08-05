@@ -29,7 +29,7 @@ export default async (message) => {
   var arrays = [], size = 5;
 
   while (m.length > 0) {
-    arrays.push(a.splice(0, size));
+    arrays.push(m.splice(0, size));
   }
 
   sendMessage(channel, arrays);
