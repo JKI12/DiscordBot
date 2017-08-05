@@ -32,5 +32,8 @@ export default async (message) => {
     arrays.push(m.splice(0, size));
   }
 
-  sendMessage(channel, arrays);
+  for(let i = 0; i < arrays.length; i ++) {
+    const array = arrays[i];
+    sendMessage(channel, array);
+  }
 };
