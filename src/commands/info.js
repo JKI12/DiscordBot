@@ -12,6 +12,8 @@ export default ({ channel }) => {
     "**!animeRoulette**: Will start the anime roulette table for you",
     "**!laugh**: Join a voice channel to trigger this command",
     "**!react** ***emotion***: Will send a gif reaction based on emotion",
-    "**!cat**: Gets a random cat picture"
+    "**!cat**: Gets a random cat picture",
+    "**!dog**: Gets a random dog picture",
+    "**!pride**: Pride",
   ]);
 };
